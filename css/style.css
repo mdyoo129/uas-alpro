@@ -1,0 +1,481 @@
+/* CSS Reset */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Root variables for colors */
+:root {
+  --background-color: #dac09b;
+  --main-color: #9f825b;
+  --hover-color: #7c6548;
+  --text-color: #fff;
+  --input-border-color: #ccc;
+  --input-background-color: #fff;
+  --button-hover-shadow: 0 2px 2px 0 #ccc, 0 2px 3px 0 #ccc;
+  --error-background-color: #f2dede;
+  --error-text-color: rgb(173, 84, 84);
+  --todo-item-shadow: 0 4px 8px 0 #a58c6a;
+  --todo-item-background-color: #fff;
+  --checked-color: #999;
+  --empty-text-color: #ccc;
+  --title-color: #fff;
+  --edit-color: rgb(179, 179, 179);
+  --edit-hover-color: rgb(179, 179, 179);
+  --remove-color: rgb(179, 179, 179);
+  --modal-background-color: #fefefe;
+  --modal-overlay-color: rgba(0, 0, 0, 0.4);
+  --modal-content-border-color: #888;
+  --modal-button-background-color: #9f825b;
+  --modal-button-text-color: #fff;
+  --modal-button-hover-background-color: #776145;
+}
+
+body {
+  background-image: url("../img/back.png"); /* Ganti path dengan path gambar Anda */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  /* background: var(--background-color); */
+  color: var(--text-color);
+  font-family: "Inter var", Inter, sans-serif;
+  font-feature-settings: "ss01", "cv08", "calt";
+  display: flex;
+  justify-content: center; /* Pusatkan secara horizontal */
+}
+
+.header-section {
+  width: 100%;
+  background-color: #ffffff00;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.title {
+  text-align: center;
+  font-size: 40px;
+  color: var(--title-color);
+  margin: 20px 0;
+}
+
+.main-section {
+  background: transparent;
+  max-width: 500px;
+  width: 90%;
+  height: 500px;
+  margin: 80px auto 20px;
+  border-radius: 10px;
+  padding-top: 20px;
+}
+
+.add-section {
+  width: 100%;
+  background: var(--input-background-color);
+  margin: 0 auto;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 30px;
+}
+
+.add-section input {
+  display: block;
+  width: 95%;
+  height: 40px;
+  margin: 10px auto;
+  border: 2px solid var(--input-border-color);
+  font-family: "inter";
+  font-size: 16px;
+  border-radius: 20px;
+  padding: 8px;
+  text-align: center;
+}
+
+.add-section button {
+  display: block;
+  width: 95%;
+  height: 40px;
+  margin: 0 auto;
+  border: none;
+  outline: none;
+  background: var(--main-color);
+  color: var(--text-color);
+  font-family: "inter";
+  font-size: 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.add-section button:hover {
+  background-color: var(--hover-color);
+}
+
+.add-section button span {
+  border: 1px solid var(--text-color);
+  border-radius: 50%;
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+}
+
+#errorMes {
+  display: block;
+  background: var(--error-background-color);
+  width: 95%;
+  margin: 0 auto;
+  color: var(--error-text-color);
+  padding: 10px;
+  height: 35px;
+}
+
+.show-todo-section {
+  width: 100%;
+  background: transparent;
+  margin: 30px auto;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.todo-item {
+  width: 95%;
+  overflow-x: hidden;
+  margin: 10px auto;
+  padding: 15px 10px;
+  border-radius: 20px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: var(--todo-item-background-color);
+  box-shadow: var(--todo-item-shadow);
+}
+
+.todo-item .checked {
+  margin-right: 10px;
+}
+
+.todo-item h2 {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+  display: block;
+  padding: 5px 0;
+  font-size: 17px;
+  color: #555;
+  flex-grow: 1;
+  margin-left: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.todo-item small {
+  display: block;
+  padding: 5px 0;
+  color: #888;
+  padding-left: 30px;
+  font-size: 14px;
+}
+
+.todo-item .ellipsis-menu {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.todo-item .ellipsis-icon {
+  cursor: pointer;
+  font-size: 12px;
+  color: #888;
+}
+
+.todo-item .menu-options {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 1000;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  display: none;
+}
+
+.todo-item .menu-options span {
+  display: block;
+  padding: 5px;
+  cursor: pointer;
+  font-family: "inter";
+  font-size: 10px;
+  color: var(--main-color);
+}
+
+.todo-item .menu-options span:hover {
+  background-color: #f0f0f0;
+}
+
+.todo-item .menu-options i {
+  margin-right: 5px;
+}
+
+.todo-item .deadline {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  font-size: 10px;
+  color: #888;
+}
+
+.checked {
+  color: var(--checked-color) !important;
+  text-decoration: line-through;
+}
+
+.empty {
+  text-align: center;
+  color: var(--empty-text-color);
+  font-size: 16px;
+}
+
+.ellipsis-menu {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 10px;
+}
+
+.ellipsis-icon {
+  cursor: pointer;
+  font-size: 10px;
+  color: #888;
+}
+
+.menu-options {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 5px;
+  box-shadow: var(--todo-item-shadow);
+  display: none;
+}
+
+.menu-options span {
+  display: block;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.menu-options span:hover {
+  background-color: #f0f0f0;
+}
+
+.edit-input {
+  color: var(--checked-color);
+  width: 95%;
+  height: 40px;
+  margin: 10px auto;
+  border: 2px solid var(--input-border-color);
+  font-family: "inter";
+  font-size: 16px;
+  border-radius: 5px;
+  padding: 0 5px;
+  display: none; /* Sembunyikan secara default */
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.row input {
+  width: 48%; /* Adjust width as needed */
+  margin-bottom: 10px;
+}
+
+.todo-item .deadline {
+  font-size: 10px;
+  color: #888;
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+
+.todo-item .category {
+  font-size: 10px;
+  color: #888;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px 5px;
+}
+
+.row select,
+.row input[type="datetime-local"] {
+  padding: 10px;
+  border: 2px solid var(--input-border-color);
+  border-radius: 20px;
+  font-size: 16px;
+  font-family: "Inter var", Inter, sans-serif;
+  box-sizing: border-box;
+}
+
+.row select {
+  width: 50%; /* Lebar untuk select element */
+}
+
+.row input[type="datetime-local"] {
+  width: 50%; /* Lebar untuk input datetime-local */
+}
+
+#category-filter {
+  padding: 8px;
+  font-family: "inter";
+  font-size: 14px;
+  border: 1px solid #cccccc00;
+  border-radius: 20px;
+  background-color: #776145;
+  color: #ffffff;
+  outline: none;
+  width: 200px; /* Sesuaikan lebar sesuai kebutuhan */
+}
+
+/* Style untuk option di dalam select */
+#category-filter option {
+  font-size: 12px;
+  padding: 8px;
+  border: 1px solid #cccccc00;
+  border-radius: 20px;
+}
+
+/* Style untuk label */
+.filter-section label {
+  font-size: 16px;
+  margin-left: 20px;
+  margin-right: 10px;
+}
+
+.welcome-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.welcome-message {
+  font-size: 18px;
+}
+
+.logout-button {
+  padding: 10px 20px;
+  background-color: var(--main-color);
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 20px;
+  text-decoration: none;
+}
+
+.logout-button:hover {
+  background-color: var(--hover-color);
+}
+
+.login-container {
+  background-color: var(--input-background-color);
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  text-align: center;
+  position: absolute;
+  top: 50%; /* Pusatkan ke atas setengah dari tinggi layar */
+  left: 50%; /* Pusatkan ke kiri setengah dari lebar layar */
+  transform: translate(-50%, -50%);
+  width: 400px; /* Lebar container */
+  height: auto;
+}
+
+.login-container h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.login-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-container input {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  font-size: 10px;
+}
+
+.login-container button {
+  padding: 10px 20px;
+  background-color: var(--main-color);
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.login-container button:hover {
+  background-color: var(--hover-color);
+}
+
+.login-container p {
+  margin-top: 10px;
+}
+
+.login-container a {
+  color: var(--hover-color);
+  text-decoration: none;
+}
+
+.login-container a:hover {
+  text-decoration: underline;
+}
+
+.error-message {
+  color: var(--hover-color);
+  font-size: 12px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.login-container .register-link {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 0px; /* Atur margin sesuai kebutuhan */
+  margin-left: 15px; /* Atur margin sesuai kebutuhan */
+  font-size: 12px; /* Atur ukuran font sesuai kebutuhan */
+  color: var(--main-color);
+}
+
+.login-container input[type="text"],
+.login-container input[type="password"],
+.login-container button {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 12px;
+}
