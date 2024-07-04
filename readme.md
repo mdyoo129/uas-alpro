@@ -1,4 +1,4 @@
-# source code Website To-Do List with CRUD (by Muhamad Dyo Rijki Fadillah)
+# Source Code Website To-Do List with CRUD (by Muhamad Dyo Rijki Fadillah)
 Teknologi :
 - PHP
 - CSS
