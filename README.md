@@ -1,16 +1,18 @@
-# source code Website To-Do List with CRUD (by Muhamad Dyo Rijki Fadillah)
+# Source Code Website To-Do List with CRUD (by Muhamad Dyo Rijki Fadillah)
+Project by :
+Muhamad Dyo Rijki Fadillah - 1237050076
 
-Teknologi :
-
+## Technology :
 - PHP
 - CSS
 - Javascript
 - HTML
 - MySQL
 
-User Login :
-
-1. Akun Personal (Dyoo)
-
+## Account :
+Personal (Dyoo)
 - username : Dyoo
 - password : 11111111
+
+## Access Link :
+https://to-do-list-dyo.000webhostapp.com/
