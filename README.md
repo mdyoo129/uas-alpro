@@ -16,3 +16,4 @@ Personal (Dyoo)
 
 ## Access Link :
 https://to-do-list-dyo.000webhostapp.com/
+Note : Open with pc for good view
